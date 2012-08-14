@@ -110,6 +110,14 @@ NSString * const SCSoundCloudDidFailToRequestAccessNotification = @"SCSoundCloud
                                    withPreparedAuthorizationURLHandler:(SCPreparedAuthorizationURLHandler)aPreparedAuthorizationURLHandler];
 }
 
++ (void)requestAccessWithUserName:(NSString *)username password:(NSString *)password
+{
+    [self removeAccess];
+    [[NXOAuth2AccountStore sharedStore] requestAccessToAccountWithType:kSCAccountType
+                                                              username:username
+                                                              password:password];
+}
+
 + (void)removeAccess;
 {
     NSArray *accounts = [[NXOAuth2AccountStore sharedStore] accountsWithAccountType:kSCAccountType];

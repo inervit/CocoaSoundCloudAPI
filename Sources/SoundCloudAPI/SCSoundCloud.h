@@ -45,6 +45,7 @@ typedef void(^SCPreparedAuthorizationURLHandler)(NSURL *preparedURL);
 #pragma mark Manage Accounts
 
 + (void)requestAccessWithPreparedAuthorizationURLHandler:(SCPreparedAuthorizationURLHandler)aPreparedAuthorizationURLHandler;
++ (void)requestAccessWithUserName:(NSString *)username password:(NSString *)password;
 + (void)removeAccess;
 
 
